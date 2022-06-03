@@ -6,7 +6,7 @@
 @minLength(4)
 @maxLength(24)
 param storageAccountName string
-param resourceLocation string = resourceGroup().location
+//param resourceLocation string = resourceGroup().location
 
 @allowed([
   'prod'
@@ -14,11 +14,12 @@ param resourceLocation string = resourceGroup().location
 ])
 param environment string
 
-var storageSku = environment == 'prod' ? 'Premium_LRS' : 'Standard_LRS' // if environment is prod use premium. If not use standard
 
+var storageSku = environment == 'prod' ? 'Premium_LRS' : 'Standard_LRS' // if environment is prod use premium. If not use standard
+var varLocation = environment == 'prod' ? 'westeurope' : 'northeurope'
 resource storage 'Microsoft.Storage/storageAccounts@2021-09-01' = {
   name: toLower(storageAccountName) // force lowercase letters
-  location: resourceLocation
+  location: varLocation
   kind:'StorageV2'
   sku: {
     name: storageSku

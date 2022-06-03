@@ -19,3 +19,7 @@ resource storage 'Microsoft.Storage/storageAccounts@2021-09-01' = {
 resource container 'Microsoft.Storage/storageAccounts/blobServices/containers@2021-09-01' = {
   name: '${storage.name}/default/mycontainer' // since our storage account is referenced. An implicit dependency is set and the container will be provisioned after our storage account.
 }
+
+resource container2 'Microsoft.Storage/storageAccounts/blobServices/containers@2021-09-01' = {
+  name: '${storage.name}/default/mycontainer1' // since our storage account is referenced. An implicit dependency is set and the container will be provisioned after our storage account.
+}

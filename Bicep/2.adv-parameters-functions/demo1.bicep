@@ -3,7 +3,7 @@
 
 @minLength(4)
 @maxLength(24)
-param storageAccountName string
+param storageAccountName string = 'lukastst2022v1'
 param resourceLocation string = 'westeurope'
 
 
