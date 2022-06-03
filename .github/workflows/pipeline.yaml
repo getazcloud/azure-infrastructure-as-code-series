@@ -24,6 +24,6 @@ jobs:
         resourceGroupName: filesynctesting
         #region: westeurope # we need to set this on subscription scoped deployments
         template: ./Bicep/2.adv-parameters-functions/demo3.bicep
-        deploymentName: 'gh-action-cd-demo'
+        #deploymentName: 'gh-action-cd-demo'
         parameters: environment=prod
         failOnStdErr: false
