@@ -33,7 +33,7 @@ var storageSettings = {
   }
 }
 
-var storageAccountNameProd = take('str${uniqueString(resourceGroup().id)}, prd', 24) // generate a unique name with 'str' as a prefix. And only take max 24 characters
+var storageAccountNameProd = take('str${uniqueString(resourceGroup().id)},prd', 24) // generate a unique name with 'str' as a prefix. And only take max 24 characters
 var storageAccountNameTest = take('str${uniqueString(resourceGroup().id)},tst', 24) // generate a unique name with 'str' as a prefix. And only take max 24 characters
 var storageAccountName = environment == 'prod' ? storageAccountNameProd : storageAccountNameTest
 
